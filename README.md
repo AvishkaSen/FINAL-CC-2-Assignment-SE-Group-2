@@ -13,7 +13,10 @@ Methods of use:
 - Go to your XAMPP htdocs folder and create a file called 'futureseekers'
 - In that folder's address bar, type 'cmd' and press enter to open the command prompt
 - In the cmd terminal, type 'git init' to initialize a local git repository
-- Then pull the files in this repository by typing and entering 'git pull https://github.com/AvishkaSen/FINAL-CC-2-Assignment-SE-Group-2.git'
+- Then pull the files in this repository by typing and entering the following line:
+    ```
+    git pull https://github.com/AvishkaSen/FINAL-CC-2-Assignment-SE-Group-2.git
+    ```
 - Open XAMPP and start the Apache and MySQL service modules 
 
 For database creation and seeding, in the address bar of the file directory, type 'cmd' (or powershell)
