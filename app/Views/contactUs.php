@@ -21,6 +21,7 @@
 
     <body>
     
+        <!-- Navbar Section -->
         <?php 
 
         // Regens session
@@ -122,6 +123,8 @@
         <?php
         }
         ?>
+        <!-- End of Navbar Section -->
+
 
         <!-- CONTACT US FORM -->
         <div class="container rounded mt-4 col-md-5 border border-dark mb-4"> 
@@ -137,11 +140,13 @@
                         
                             <div class="row mt-2">
 
+                                <!-- Name -->
                                 <div class="col-md-6">
                                     <label class="labels">Name:</label>
                                     <input type="text" class="form-control" placeholder="John" name="name">
                                 </div>
                                 
+                                <!-- Contact Number -->
                                 <div class="col-md-6">
                                     <label class="labels">Contact Number:</label>
                                     <input type="text" class="form-control"placeholder="+94" name="mobile">
@@ -149,7 +154,7 @@
 
                             </div>
                             
-
+                            <!-- Email -->
                             <div class="row mt-3">
                                 <div class="col-md-12">
                                     <label class="labels">E-mail:</label>
@@ -157,31 +162,29 @@
                                 </div>
                             </div>
                             
+                            <!-- Description -->
                             <div class="row mt-2">
-
                                 <div class="col-md-12">
                                     <label class="labels">Description:</label>
-                                    <input type="text" class="form-control" placeholder="Description" name="description">
+                                    <input type="text" class="form-control" placeholder="description" name="description">
                                 </div>
 
-                                </div>
+                            </div>
 
-                            <br>
-
-                            <br>
-
-                            <div class="text-center p-2">
+                            <!-- Submit Button -->
+                            <div class="text-center pt-5">
                                 <input class="btn btn-outline-primary profile-button btn-lg" type="submit" value="Submit"> </input>
                             </div> 
 
                         </form>
 
-                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
         <!-- END OF CONTACT US FORM -->
+
 
         <!-- Footer -->
         <footer>
@@ -220,51 +223,7 @@
             <p class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i> 2021 Group 2 Avishka . Dilki . Siduja . Yahya </p>
 
         </footer>
-
-        <!-- <div class="wrapper">
-                <div class="content">
-                <h1>CONTACT FORM</h1>
-                <p>Connect with us by sending your views.</p>
-                </div>
-            
-                <div class="form">
-            
-                <div class="top-form">
-                    <div class="inner-form">
-                    <div class="label">name</div>
-                    <input type="text" placeholder="Jhon">
-                    </div>
-                    <div class="inner-form">
-                    <div class="label">email</div>
-                    <input type="text" placeholder="Example@gmail.com">
-                    </div>
-                    <div class="inner-form">
-                    <div class="label">phone</div>
-                    <input type="text" placeholder="1234567890">
-                    </div>
-                </div>
-            
-                <div class="middle-form">
-                    <div class="inner-form">
-                    <div class="label">subject</div>
-                    <input type="text" placeholder="Subject">
-                    </div>
-                </div>
-            
-                <div class="bottom-form">
-                    <div class="inner-form">
-                    <div class="label">message</div>
-                    <textarea placeholder="Your message"></textarea>
-                    </div>
-                </div>
-            
-                <div class="btn">send form</div>
-            
-                </div>
-            </div>
-        
-            </div> 
-        -->
+        <!-- End of Footer -->
 
     </body>
 
