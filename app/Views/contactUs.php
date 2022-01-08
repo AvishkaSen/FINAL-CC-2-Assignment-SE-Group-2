@@ -136,7 +136,8 @@
                             <h4 id="header1" class="text-right text-success display-6 p-2">CONTACT US</h4>
                         </div>
 
-                        <form action=<?php echo site_url('contact/feedback') ?> method="post">
+                        <!-- Sends form data to the inquiries funciton in the contactUs controller-->
+                        <form action=<?php echo site_url('contactUs/inquiries') ?> method="post">
                         
                             <div class="row mt-2">
 

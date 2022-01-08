@@ -4,7 +4,7 @@
 
     use CodeIgniter\Entity\Entity;
 
-    class feedback extends Entity
+    class contactUs extends Entity
     {
         
     }

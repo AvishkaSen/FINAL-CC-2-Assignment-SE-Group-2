@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Feedback extends Migration
+class ContactUs extends Migration
 {
     public function up()
     {
@@ -35,19 +35,17 @@ class Feedback extends Migration
                 'constraint'=>100,
             ],
                  
-            ]);
+        ]);
+                     
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('ContactUs'); 
             
-            $this->forge->addPrimaryKey('id');
-            $this->forge->createTable('feedback'); 
-            
-
-           
     }
 
 
     public function down()
     {
-        $this->forge->dropTable('feedback'); 
+        $this->forge->dropTable('ContactUs'); 
     }
 }
 
