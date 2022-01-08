@@ -22,6 +22,11 @@
       // Goes to admin job ads management
       return view('Admin/adminads.php');
     }
+
+    public function adminContacts(){
+      // Goes to admin contact management page
+      return view('Admin/adminContacts.php');
+    }
     
 
     //////////////////// ADMIN ADVERTISEMENT MANAGEMENT ////////////////////////////////

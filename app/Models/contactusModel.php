@@ -12,7 +12,7 @@
 
         protected $table = 'contactUs'; // Give the table name
 
-        protected $allowedFields=['name', 'mobile', 'email', 'description']; 
+        protected $allowedFields=['subject', 'name', 'mobile', 'email', 'description']; 
         protected $returnType = 'App\Entities\contactusModel';
 
     }

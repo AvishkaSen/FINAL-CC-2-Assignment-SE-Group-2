@@ -16,21 +16,23 @@ class ContactUs extends Migration
                 'unsigned'=>true,
                 'auto_increment'=>true
             ],
-            'name'=>[ 
+            'subject'=>[  // subject of the inquiry
                 'type'=>'VARCHAR',
                 'constraint'=>100,
             ],
-            'mobile'=>[ 
+            'name'=>[  // name of the user
                 'type'=>'VARCHAR',
                 'constraint'=>100,
             ],
-            'email'=>[ 
+            'mobile'=>[  // mobile number of the user
                 'type'=>'VARCHAR',
                 'constraint'=>100,
-                'unique'=>true
             ],
-            
-            'description'=>[ 
+            'email'=>[  // email of the user
+                'type'=>'VARCHAR',
+                'constraint'=>100,
+            ],
+            'description'=>[ // description of the inquiry 
                 'type'=>'VARCHAR',
                 'constraint'=>100,
             ],
