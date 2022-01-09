@@ -69,8 +69,6 @@
 
                             </div>
 
-                            <br>
-
                             <div class="text-center p-3">
                                 <input class="btn btn-outline-Success profile-button btn-lg" type="submit" value="Login to Futureseekers!"> </input>
                             </div> 

@@ -71,7 +71,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-12">
                                     <label class="labels">E-mail:</label>
-                                    <input type="text" class="form-control" placeholder="email address" name="email">
+                                    <input type="email" class="form-control" placeholder="email address" name="email" required>
                                 </div>
                             </div>
                             

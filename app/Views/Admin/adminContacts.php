@@ -46,7 +46,7 @@
                     <div class="card border border-dark mb-3 mt-3">
 
                         <div class="card-header">
-                            <h4 class="text-center">Awaiting Site Visitor Inquiries</h4>
+                            <h4 class="text-center text-success pt-1">Site Visitor Inquiries (Contact Us)</h4>
                         </div>
 
                         <div class="card-body">
@@ -102,6 +102,60 @@
         <!-- Admin ads awaiting approval -->
 
 
+        <!-- REPLY TO INQUIRY FORM -->
+        <div class="container rounded mt-4 col-md-6 border border-dark mb-5"> 
+            <div class="row">
+                <div class="col-md-12 border-right">
+                    <div class="p-5 py-5">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 id="header1" class="text-center text-success display-6 p-2 font-weight-bold">Reply to Inquiry</h4>
+                        </div>
+
+                        <!-- Sends form data to the inquiries funciton in the contactUs controller-->
+                        <form action=<?php echo site_url('contactUs/replyInquiry') ?> method="post">
+
+
+                            <!-- Reply Subject -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="labels">Subject:</label>
+                                    <input type="text" class="form-control" placeholder="enter reply subject" name="subject required">
+                                </div>
+                            </div>
+                            
+                            <!-- Reply Email -->
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">E-mail:</label>
+                                    <input type="email" class="form-control" placeholder="user's email address" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Reply Information -->
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <label class="labels">Description:</label>
+                                    <textarea type="text" rows="5" class="form-control" placeholder="enter your reply here" name="description" required></textarea>
+                                </div>
+
+                            </div>
+
+                            <!-- Inquiry Submit Button -->
+                            <div class="text-center pt-5">
+                                <input class="btn btn-outline-success profile-button btn-lg" type="submit" value="Reply"> </input>
+                            </div> 
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- END OF REPLY TO INQUIRY FORM -->
+
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -137,6 +191,7 @@
             </div>
             <p class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i> 2021 Group 2 Avishka . Dilki . Siduja . Yahya </p>
         </footer>
+        <!-- End of Footer -->
 
     </body>
 </html>
