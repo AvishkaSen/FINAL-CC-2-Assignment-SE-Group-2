@@ -54,6 +54,13 @@
             }      
         </script>
 
+        <!-- function for displaying share section -->
+        <script>
+            function shareAd() {
+                document.getElementById('shareDiv').style.display = "block";
+            }      
+        </script>
+
 
 
         <!-- displays the user's account / profile information -->
@@ -115,12 +122,19 @@
                                     }
 
                                 ?>
-                                    
-                                <div class="col-md-6 text-center">
-                                    <input class="btn btn-outline-success profile-button px-4" type="submit" onclick="applyAd()" value="Apply"> </input> <!--Runs applyAD function-->
+                                   
+                                <!-- Button to apply to an ad -->
+                                <div class="col-md-4 text-center">
+                                    <input class="btn btn-outline-success profile-button px-4" type="submit" onclick="applyAd()" value="Apply"> </input> 
+                                </div>
+
+                                <!-- Button to open the share function -->
+                                <div class="col-md-4 text-center">
+                                    <input class="btn btn-outline-success profile-button px-4" type="submit" onclick="shareAd()" value="Share"> </input>
                                 </div>
                                 
-                                <div class="col-md-6 text-center">
+                                <!-- Button to go back -->
+                                <div class="col-md-4 text-center">
                                     <button class="btn btn-outline-secondary profile-button" type="button" onclick="location.href='<?php echo base_url('Postings/index')?>'">Go Back</button>
                                 </div>
                                     
@@ -299,6 +313,77 @@
             </div>
         </div>
         <!-- End of Apply to job advert section -->
+        
+
+        <!-- Start of share ad section -->
+        
+        <?php
+            // Getting session related data    
+            session();
+            $advertID = session()->get('AdvertID'); // Gets the currecnt job advert ID from the session
+        
+        ?>
+
+        <div class="container rounded mt-4 col-md-5 border border-dark mb-4" style="display:none;" id="shareDiv"> <!-- This div is hidden by default -->
+            <div class="row">
+                <div class="col-md-12 border-right">
+                    <div class="d-flex flex-column align-items-center p-3 py-5">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 id="header1" class="text-right text-success display-6 p-2 font-weight-bold">Share This Ad!</h4>
+                        </div>
+
+                        <!-- Sends form data to the shareAd function in the shareAd controller -->
+                        <form action=<?php echo site_url('shareAd/shareAdvert') ?> method="post">
+
+
+                            <!-- Subject -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="labels">Share Subject:</label>
+                                    <input type="text" class="form-control" placeholder="enter subject" name="subject" required>
+                                </div>
+                            </div>
+
+                        
+                            <div class="row mt-2">
+
+                                <!-- Name -->
+                                <div class="col-md-6">
+                                    <label class="labels">Name:</label>
+                                    <input type="text" class="form-control" placeholder="recipient name here" name="name" required>
+                                </div>
+                                
+                                <!-- Contact Number -->
+                                <div class="col-md-6">
+                                    <label class="labels">Recipient E-mail:</label>
+                                    <input type="text" class="form-control" placeholder="enter recipient email address" name="email" required>
+                                </div>
+
+                            </div>
+                            
+                            <!-- Message -->
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <label class="labels">Message:</label>
+                                    <textarea type="text" rows="4" class="form-control" placeholder="enter message to recipient here" name="message"></textarea>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="advertid" value="<?php echo $advertID?>"> <!-- current advert's ID -->
+
+                            <!-- Submit Button -->
+                            <div class="text-center pt-4">
+                                <input class="btn btn-outline-success profile-button btn-lg" type="submit" value="Share"> </input>
+                            </div> 
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of share ad section -->
 
 
         <br>

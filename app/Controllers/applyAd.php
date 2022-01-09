@@ -52,7 +52,6 @@
                         'file' => $file->getName(), // uploads NAME OF THE FILE. Not the file itself.
                     ]);
 
-
                     // email notifications after user has applied ////////////
                     $to = $advertOwnerEmail;
                     $subject = 'New applicant for your ad number '.$advertid.'!';
@@ -71,14 +70,13 @@
                     $email = \Config\Services::email(); // loads email instance from config/Email.php
 
                     $email -> setTo($to); // sets the email to the advert owner
-                    $email -> setFrom('futureseekershelp@gmail.com', 'Info'); 
+                    $email -> setFrom('futureseekershelp@gmail.com', 'User has applied to your ad'); 
                     $email -> setSubject($subject); // sets the subject of the email
                     $email -> setMessage($emailmessage); // sets the message of the email
                     $email->attach($CVpath); // attaches the file to the email
                     if($email -> send()) // sends the email
 
                     ///////////////////////////////////////
-
                     
                     // success message
                     echo '<div class="alert2">
