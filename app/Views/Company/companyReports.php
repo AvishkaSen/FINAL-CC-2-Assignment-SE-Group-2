@@ -40,7 +40,7 @@
                     <li><a href="<?php echo base_url('Home/home')?>">Home</a></li>
                     <li><a href="<?php echo base_url('Postings/index')?>">My Adverts</a></li>
                     <li><a href="<?php echo base_url('Createad/index')?>">Create Job Advert</a></li>
-                    <li><a href="<?php echo base_url('Company/company_reports')?>">Reports</a></li>
+                    <li><a href="<?php echo base_url('Company/Reports')?>">Reports</a></li>
                     <li><a href="<?php echo base_url('Home/aboutUs')?>">About Us</a></li>
                     <li><a href="<?php echo base_url('Home/contactUs')?>">Contact Us</a></li>
                     <li><a href="<?php echo base_url('myProfile/index')?>">My Profile</a></li>

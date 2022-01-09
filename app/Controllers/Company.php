@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 class Company extends BaseController
 {
-    public function company_reports()
+    public function Reports()
     {
-        return view('Company/company_reports');
+        return view('Company/companyReports.php');
     }
 
 }

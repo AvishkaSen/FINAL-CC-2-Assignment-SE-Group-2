@@ -78,10 +78,10 @@
       return view('Admin/adminuser.php');
     }
 
-    // Admin creates reports 
+    // Admin user reports 
     public function reports()
     {
-        return view('Admin/reports.php');
+      return view('Admin/adminReports.php');
     }
 
   }
