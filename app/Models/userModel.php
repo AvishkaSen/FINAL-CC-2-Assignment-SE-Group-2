@@ -12,7 +12,7 @@
 
         protected $table = 'registrations'; // Give the table name
 
-        protected $allowedFields=['fname', 'lname', 'email', 'password', 'type', 'new', 'approved']; 
+        protected $allowedFields=['fname', 'lname', 'email', 'password', 'type', 'new', 'approved', 'preferred']; 
         protected $returnType = 'App\Entities\Users';
 
     }

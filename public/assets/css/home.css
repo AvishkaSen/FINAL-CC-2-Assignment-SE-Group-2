@@ -149,7 +149,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.card{
+.cards{
     color: #fff;
     background: rgba(128, 255, 0, 0.26);
     height: fit-content;
@@ -162,46 +162,46 @@
     
 }
 
-.card:hover,
-.card:focus-within{
+.cards:hover,
+.cards:focus-within{
     transform: scale(1.05);
 }
 
 /* //////////////////// HOME PAGE CARDS BACKGROUND IMAGES ///////////////////// */
-.card1{
+.cards1{
     background-image: url(../img/career.jpeg);
 }
-.card2{
+.cards2{
     background-image: url(../img/jobs.jpeg);
 }
 
-.card3{
+.cards3{
     background-image: url(../img/resume.jpeg); 
 }
 
-.card4{
+.cards4{
     background-image: url(../img/interview.jpeg);
 }
 
-.card5{
+.cards5{
     background-image: url(../img/MAS.jpeg);
 }
 
-.card6{
+.cards6{
     background-image: url(../img/virtusa.jpeg);
 }
 
-.card7{
+.cards7{
     background-image: url(../img/johnkeels.jpg);
 }
 
-.card8{
+.cards8{
     background-image: url(../img/commercialbank.jpg);
 }
 
 /* //////////////////////////////////////////////////////////// */
 
-.card-container{
+.cards-container{
     --padding: 1.5rem;
     padding: var(--padding);
     background: linear-gradient(
@@ -211,34 +211,34 @@
     transform:translateY(54%);
     transition: 500ms ease-in-out;
 }
-.card-container .button{
+.cards-container .button{
     margin: 10px ;
 }
-.card:hover .card-container,
-.card:focus-within .card-container{
+.cards:hover .cards-container,
+.cards:focus-within .cards-container{
     transform:translateY(0%);
     transition-delay: 500ms;
 }
-.card:focus-within .card-container{
+.cards:focus-within .cards-container{
     transition-duration: 0ms;
 }
 
-.card-container > * :not(.card-title){
+.cards-container > * :not(.cards-title){
     opacity: 0;
     transition: opacity 500ms linear;
 }
 
-.card:hover .card-container > * :not(.card-title),
-.card:focus-within .card-container > * :not(.card-title){
+.cards:hover .cards-container > * :not(.cards-title),
+.cards:focus-within .cards-container > * :not(.cards-title){
     opacity: 1;
     transition-delay: 1000ms;
 }
-.card-title{
+.cards-title{
     position: relative;
     width: max-content;
     font-size: 23px;
 }
-.card-title::after{
+.cards-title::after{
     content: "";
     position: absolute;
     left: 0%;
@@ -250,11 +250,11 @@
     transform-origin: left;
     transition: transform 500ms ease;
 }
-.card:hover .card-title::after,
-.card:focus-within .card-title::after{
+.cards:hover .cards-title::after,
+.cards:focus-within .cards-title::after{
     transform: scale(1);
 }
-.card-body{
+.cards-body{
     color: #fff;
 }
 .button{

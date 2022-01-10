@@ -45,6 +45,11 @@
                     'type'=>'VARCHAR',
                     'constraint'=>60
                 ],
+                'preferred'=>[ // If the account is approved or not by the site admin
+                    'type'=>'VARCHAR',
+                    'constraint'=>60,
+                    'nullable'=>true
+                ],
                 
             ]);
 

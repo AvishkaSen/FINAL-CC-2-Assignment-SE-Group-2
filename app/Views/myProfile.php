@@ -141,7 +141,7 @@
                 {
             ?>
 
-                <h1 id="header2"> Welcome <?php echo $userName?>! </h1>
+                <h1 id="header2" class="pt-5" style="color: green"> Welcome <?php echo $userName?>! </h1>
 
                 <div class="container rounded bg-white mt-1 mb-5 border border-dark p-5">
                     <div class="row">

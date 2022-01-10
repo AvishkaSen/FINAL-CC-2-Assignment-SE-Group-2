@@ -14,41 +14,73 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
 
     <body>
 
         <!-- The pop up -->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
 
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Greetings!</h2>
-                </div>
+            <!-- Applicant account's pop up -->
+            <div id="applicantModal" class="modal2">
+                <div class="modal2-content">
 
-                <div class="modal-body">
-                    
-                    <p> Welcome to FutureSeekers! </p>
-                    <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
-                    <br>
-                    <p> On this website, you can upload job advertisements of your company's job openings.</p>
-                    <p> Once approved by our site admins, it will be on display for all users to see. </p>
-                    <br>
-                    <p> For applicants, you can see and apply to any adverts that are approved on the site with your CV and basic information. </p>
-                    <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
-                    <br><br>
-                    <p> For any FutureSeekers inquiries, please send an email to our support service team </p>
-                    <p> <i> futureseekershelp@gmail.com </i> </p>
+                    <div class="modal2-header">
+                        <span class="close">&times;</span>
+                        <h2 class="p-3">Greetings!</h2>
+                    </div>
 
+                    <div class="modal2-body">
+                        
+                        <p> Welcome to FutureSeekers! </p>
+                        <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
+                        <br>
+                        <p> On this website, you can upload job advertisements of your company's job openings.</p>
+                        <p> Once approved by our site admins, it will be on display for all users to see. </p>
+                        <br>
+                        <p> For applicants, you can see and apply to any adverts that are approved on the site with your CV and basic information. </p>
+                        <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
+                        <br><br>
+                        <p> For any FutureSeekers inquiries, please send an email to our support service team </p>
+                        <p> <i> futureseekershelp@gmail.com </i> </p>
+
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Company account's pop up --> 
+            <div id="companyModal" class="modal2">
+                <div class="modal2-content">
+
+                    <div class="modal2-header">
+                        <span class="close">&times;</span>
+                        <h2 class="p-3">Greetings!</h2>
+                    </div>
+
+                    <div class="modal2-body">
+                        
+                        <p> Welcome to FutureSeekers! </p>
+                        <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
+                        <br>
+                        <p> On this website, you can upload job advertisements of your company's job openings.</p>
+                        <p> Once approved by our site admins, it will be on display for all users to see. </p>
+                        <br>
+                        <p> For applicants, you can see and apply to any adverts that are approved on the site with your CV and basic information. </p>
+                        <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
+                        <br><br>
+                        <p> For any FutureSeekers inquiries, please send an email to our support service team </p>
+                        <p> <i> futureseekershelp@gmail.com </i> </p>
+
+                    </div>
+                </div>
+            </div>
+
         <!-- End of pop up -->
 
 
+        <!-- Navbar Section --> 
         <?php 
 
             // Regens session
@@ -159,14 +191,15 @@
                 // Does nothing. 
                 // This is to bypass undefined array key error
             }
-            else if($_SESSION["New"] == "Yes")
+            else if($_SESSION["New"] == "Yes" && $_SESSION["Type of User"] == "Applicant")
+                // If the user is a new user, display the pop up
             {
 
                 // If the account is new, display this pop up modal
                 echo '
                 <script>
 
-                    var modalObject = document.getElementById("myModal"); // the modal
+                    var modalObject = document.getElementById("applicantModal"); // the modal
 
                     var spanObject = document.getElementsByClassName("close")[0]; // Closing
 
@@ -196,6 +229,43 @@
                 $model = new \App\Models\userModel;
                 $updateNew = $model -> query("UPDATE registrations SET new = 'No' WHERE id = $user_id");
 
+            } else if ($_SESSION["New"] == "Yes" && $_SESSION["Type of User"] == "Company" ) {
+
+
+                // If the account is new, display this pop up modal
+                echo '
+                <script>
+
+                    var modalObject = document.getElementById("companyModal"); // the modal
+
+                    var spanObject = document.getElementsByClassName("close")[0]; // Closing
+
+                    modalObject.style.display = "block"; // Displays the modal
+
+                    // If the X is clicked, close the modal
+                    spanObject.onclick = function() {
+                        modalObject.style.display = "none";
+                    }
+
+
+                    // Closes the modal if the user presses something anywhere
+                    window.onclick = function(event) {
+
+                        if (event.target == modalObject) {
+                            modalObject.style.display = "none";
+                        }
+                    }
+
+                </script>
+                ';
+                
+                // Changes the session to user is not new anymore
+                $_SESSION["New"] = "No";
+
+                // updates the database to User account not new
+                $model = new \App\Models\userModel;
+                $updateNew = $model -> query("UPDATE registrations SET new = 'No' WHERE id = $user_id");
+
             }
 
         ?>
@@ -212,28 +282,38 @@
             
             <?php 
 
+                $userName = session()->get('First Name'); // Gets the User's Name from the session
+
                 // If session is not set, or user is an applicant
                 if( !isset($_SESSION['UserID']) || $_SESSION['Type of User'] == 'Applicant')
                 {
             ?>
+                
+                <h1 id="header2" class="p-1" style="color: green"> Welcome <?php echo $userName?>! </h1>
+
                 <!-- Sets details for applicant or non logged in user  -->
-                <span>Looking for Jobs?</span>
-                <h2>Search For your <br> Dream Job!</h2>
+                <span class="p-2"> Looking for Jobs?</span>
+                <h2 class="p-2"> Search For your <br> Dream Job!</h2>
                 <div class="wrapper">
                         <div class="cnt3"> 
-                            <button class="button2" type="button" onclick="location.href='<?php echo base_url('Postings/index')?>'">Get Started!</button>
+                            <button class="button2" type="button" onclick="location.href='<?php echo base_url('Postings/index')?>'">Browse Now!</button>
                         </div>
                     </div>
                 </div>
 
             <?php
+
+                $userName = session()->get('First Name'); // Gets the User's Name from the session
             
                 } else if($_SESSION['Type of User'] == 'Company')
                 {
             ?>
+
+                <h1 id="header2" class="p-1" style="color: green"> Welcome <?php echo $userName?>! </h1>  
+
                 <!-- Sets details for company -->
-                <span>Looking to fill company positions?</span>
-                <h2>Create your <br> job advert now!</h2>
+                <span class="p-2">Looking to fill company positions?</span>
+                <h2 class="p-2">Create your <br> job advert now!</h2>
                 <div class="wrapper">
                         <div class="cnt3"> 
                             <button class="button2" type="button" onclick="location.href='<?php echo base_url('Createad/index')?>'">Get Started!</button>
@@ -242,13 +322,18 @@
                 </div>
 
             <?php
+
+                $userName = session()->get('First Name'); // Gets the User's Name from the session
+                
                 } else if($_SESSION['Type of User'] == 'Admin')
                 {
             ?>
 
+                <h1 id="header2" class="p-1" style="color: green"> Welcome <?php echo $userName?>! </h1>
+
                 <!-- Sets details for admin -->
-                <span> Want to manage FutureSeekers?</span>
-                <h2>Go to the <br> Admin Dashboard now!</h2>
+                <span class="p-2"> Want to manage FutureSeekers?</span>
+                <h2 class="p-2">Go to the <br> Admin Dashboard now!</h2>
                 <div class="wrapper">
                         <div class="cnt3"> 
                             <button class="button2" type="button" onclick="location.href='<?php echo base_url('Admin/index')?>'">Get Started!</button>
@@ -268,7 +353,7 @@
         <?php 
             if( !isset($_SESSION['UserID']) || $_SESSION['Type of User'] == 'Applicant') 
             {
-            ?>
+        ?>
             <div class="bx2">
                 <h2>Popular Search</h2>
 
@@ -293,7 +378,96 @@
         ?>
         <!-- End of popular search section -->
 
-        <br><br>
+
+        <!-- Jobs that might interest you section -->
+        <?php
+        
+            if( !isset($_SESSION['UserID'])) {
+                // Does nothing
+                // This is to bypass an error message
+                
+            } else if($_SESSION['Type of User'] == 'Applicant') 
+            {
+        ?>
+
+            <!-- ADMIN ADS AWAITING APPROVAL -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <div class="card border border-dark mb-3 mt-3">
+
+                            <div class="card-header">
+                                <h4 class="text-center text-success pt-1">Jobs that might interest you!</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+
+                                        <tr>
+                                            <th>Ad Title</th>
+                                            <th>Job Position</th>
+                                            <th>Company</th>
+                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Experience</th>
+                                            <th>Salary</th>
+                                            <th>WFH</th>
+                                            <th>View Ad</th>
+
+                                        </tr>
+
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <?php
+
+                                            session();
+                                            $adsModel = new \App\Models\adModel;
+
+                                            // gets the preferred job ads from the session 
+                                            $preferred = session()->get('Preferred');
+                                            
+                                            // Runs query to get approved ads of the user
+                                            $query = $adsModel -> query("SELECT * FROM adverts WHERE approved = 'Yes' AND category = '$preferred'"); 
+
+                                            foreach ($query -> getResult() as $row){
+
+                                        ?>
+                                            <tr>
+
+                                                <td><?php echo $row -> jobname ?></td>
+                                                <td><?php echo $row -> position ?></td>
+                                                <td><?php echo $row -> company_name ?></td>
+                                                <td><?php echo $row -> category ?></td>
+                                                <td><?php echo $row -> location ?></td>
+                                                <td><?php echo $row -> experience ?></td>
+                                                <td><?php echo $row -> salary ?></td>
+                                                <td><?php echo $row -> wfh ?></td>
+                                                
+                                                <td>
+                                                    <a href="<?php echo base_url('Postings/jobDetailsPage/'.$row -> id)?>" class="btn btn-outline-success float-end btn-sm">View</a>
+                                                </td>
+                                                
+                                            </tr>
+                                        <?php 
+                                        } 
+                                        ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+            }
+        ?>
+        
+        <!-- end of the jobs that might interest you section -->
+
 
         <!-- Career advices card -->
         <div class="bx3">
@@ -301,48 +475,48 @@
             <h2 class="bx3-head">Career Advices</h2>
             <div class="cnt4">
 
-                <div class="card card1">
-                    <div class="card-container">
-                        <h2 class="card-title">
+                <div class="cards cards1">
+                    <div class="cards-container">
+                        <h2 class="cards-title">
                             Self Assesments
                         </h2>
-                        <p class="card-body">
+                        <p class="cards-body">
                             Tips for self career assesments
                         </p>
-                        <a href="https://www.insidehighered.com/advice/2017/01/23/using-self-assessment-tools-help-you-determine-best-career-yourself-essay"class="button">Learn more</a>
+                        <a href="https://www.insidehighered.com/advice/2017/01/23/using-self-assessment-tools-help-you-determine-best-career-yourself-essay" class="button">Learn more</a>
                     </div>
                 </div>
 
-                <div class="card card2">
-                    <div class="card-container">
-                        <h2 class="card-title">
+                <div class="cards cards2">
+                    <div class="cards-container">
+                        <h2 class="cards-title">
                             Jobs
                         </h2>
-                        <p class="card-body">
+                        <p class="cards-body">
                             Start looking for jobs which suits you
                         </p>
                         <a href="https://www.glassdoor.com/blog/quiz-what-job-best-fits-your-life/" class="button">Learn more</a>
                     </div>
                 </div>
 
-                <div class="card card3">
-                    <div class="card-container">
-                        <h2 class="card-title">
+                <div class="cards cards3">
+                    <div class="cards-container">
+                        <h2 class="cards-title">
                             Resume
                         </h2>
-                        <p class="card-body">
+                        <p class="cards-body">
                             Resume samples and techniques
                         </p>
                         <a href="https://www.indeed.com/career-advice/resumes-cover-letters/how-to-make-a-resume-with-examples" class="button">Learn more</a>
                     </div>
                 </div>
 
-                <div class="card card4">
-                    <div class="card-container">
-                        <h2 class="card-title">
+                <div class="cards cards4">
+                    <div class="cards-container">
+                        <h2 class="cards-title">
                             Interview
                         </h2>
-                        <p class="card-body">
+                        <p class="cards-body">
                             100 + Top interview questions
                         </p>
                         <a href="https://www.indeed.com/career-advice/interviewing/interview-questions-and-answer-for-fresher" class="button">Learn more</a>
@@ -361,9 +535,9 @@
             
             <div class="cnt4">
 
-                <div class="card card5">
-                    <div class="card-container">
-                        <h3 class="card-title">
+                <div class="cards cards5">
+                    <div class="cards-container">
+                        <h3 class="cards-title">
                             MAS Holdings
                         </h3>
 
@@ -371,9 +545,9 @@
                     </div>
                 </div>
 
-                <div class="card card6">
-                    <div class="card-container">
-                        <h3 class="card-title">
+                <div class="cards cards6">
+                    <div class="cards-container">
+                        <h3 class="cards-title">
                             Virtusa
                         </h3>
                         
@@ -381,19 +555,18 @@
                     </div>
                 </div>
 
-                <div class="card card7">
-                    <div class="card-container">
-                        <h3 class="card-title">
+                <div class="cards cards7">
+                    <div class="cards-container">
+                        <h3 class="cards-title">
                         John Keells Holdings
                         </h3>
-                        
                         <a href="https://www.keells.com/" class="button">Learn more</a>
                     </div>
                 </div>
 
-                <div class="card card8">
-                    <div class="card-container">
-                        <h3 class="card-title">
+                <div class="cards cards8">
+                    <div class="cards-container">
+                        <h3 class="cards-title">
                         Commercial Bank
                         </h3>
 

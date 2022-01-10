@@ -30,8 +30,7 @@ class Register extends BaseController
             // Inserts account registration information into the database
             $model->insert($users); 
 
-
-            //   Setting up the company account profile   //
+            ////////   Setting up the company account profile   ////////
 
             // get account type
             $account_type = $this->request->getPost('type');

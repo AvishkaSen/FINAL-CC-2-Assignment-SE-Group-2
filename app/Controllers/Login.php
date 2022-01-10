@@ -35,6 +35,7 @@ class Login extends BaseController
 			$session->set('Type of User', $user -> type); // sets the user type
 			$session->set('New', $user -> new); 
 			$session->set('Approved', $user -> approved); 
+			$session->set('Preferred', $user -> preferred); // for job preference
 			
 			// Checks the account user type
 			if(isset($_SESSION["AdvertID"])) 
