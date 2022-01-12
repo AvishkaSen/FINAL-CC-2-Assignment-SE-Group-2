@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--bootstrap css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <style>
@@ -29,6 +30,7 @@
     }
 
 </style>
+
 
 <body>
 
@@ -82,7 +84,13 @@
                                     <div class="col-md-12">
                                         <div class="form-group mb-2">
                                             <label>Job Ad Title</label>
+                                            <label id="jobTitle"> (?) </label> 
                                             <input type="text" name="jobname" class="form-control" required placeholder="Enter Ad Title">
+                                            
+                                            <!-- Tool tip 
+                                            <span class="tooltip2" data-tooltip="Test">?</span>
+                                            -->
+
                                         </div> 
                                     </div>
 
@@ -90,6 +98,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label>Company Name</label>
+                                            <label id="companyName"> (?) </label> 
                                             <input type="text" name="company_name" class="form-control" required placeholder="Enter Company name">
                                         </div> 
                                     </div>
@@ -97,7 +106,8 @@
                                     <!-- position -->
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
-                                            <label>Job Position</label>
+                                            <label> Job Position</label>
+                                            <label id="jobPosition"> (?) </label> 
                                             <input type="text" name="position" class="form-control" required placeholder="Enter Position">
                                         </div> 
                                     </div>
@@ -106,6 +116,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label>Category</label>
+                                            <label id="category"> (?) </label> 
                                             <select class="form-select" required name="category">
                                                 <option selected>Select a category</option>
                                                 <option value="Administration, business and management">Administration, business and management</option>
@@ -143,6 +154,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label>Location</label>
+                                            <label id="location"> (?) </label> 
                                             <input type="text" name="location" class="form-control" required placeholder="Enter Ciy">
                                         </div> 
                                     </div>
@@ -151,6 +163,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group mb-2">
                                             <label>Years of Experience Needed</label>
+                                            <label id="experience"> (?) </label> 
                                             <input type="text" name="experience" class="form-control" required placeholder="Enter Years of Experience">
                                         </div> 
                                     </div>
@@ -159,6 +172,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group mb-2">
                                             <label>Salary Per Month</label>
+                                            <label id="salary"> (?) </label> 
                                             <input type="text" name="salary" class="form-control" required placeholder="Enter Salary">
                                         </div> 
                                     </div>
@@ -167,6 +181,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group mb-2">
                                             <label>Work From Home</label>
+                                            <label id="wfh"> (?) </label> 
                                             <select class="form-select" required name="wfh">
                                                 <option selected>Select a category</option>
                                                 <option value="Yes">Yes</option>
@@ -179,6 +194,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group mb-2">
                                             <label>Description</label>
+                                            <label id="description"> (?) </label> 
                                             <textarea name="description" class="form-control" placeholder="Enter Description" required></textarea>
                                         </div> 
                                     </div>
@@ -256,6 +272,66 @@
         </div>
         <p class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i> 2021 Group 2 Avishka . Dilki . Siduja . Yahya </p>
     </footer>
+
+    <!-- Production -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    
+    <!-- Javascript section for tippy tooltips -->
+    <script>
+
+        tippy('#jobTitle', {
+            content: "Enter your job advert's title. Make it catchy and interesting!",
+            placement: 'top',
+
+        });
+
+        tippy('#companyName', {
+            content: "Please enter your company's corporate name",
+            placement: 'top',
+            
+        });
+
+        tippy('#jobPosition', {
+            content: "The job title of the position you are looking to fill in your company. Example: 'Software Engineer'",
+            placement: 'top',
+            
+        });
+
+        tippy('#category', {
+            content: "The category of the position you are looking to fill in your company. Example: 'Computing and ICT'",
+            placement: 'top',
+        });
+
+        tippy('#location', {
+            content: "The location of the job position, or where the company will be located if you are offering a remote job",
+            placement: 'top',
+            
+        });
+
+        tippy('#experience', {
+            content: "The Experience level you need to undertake this position",
+            placement: 'top',
+            
+        });
+
+        tippy('#salary', {
+            content: "The salary you are offering for this position",
+            placement: 'top',
+            
+        });
+
+        tippy('#wfh', {
+            content: "Whether this job position will have remore work capabilities or not",
+            placement: 'top',
+        });
+
+        tippy('#description', {
+            content: "A description of the job position you are offering. Make it interesting, and make sure it is informative and easy to understand!",
+            placement: 'top',
+        });
+
+    </script>
 
 </body>
 </html>

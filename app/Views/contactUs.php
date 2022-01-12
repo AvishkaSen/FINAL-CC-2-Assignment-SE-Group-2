@@ -28,7 +28,6 @@
             text-align: center;
         }
 
-
         /* For message echoed when CV file related issue arises */
         .alert3 {
             padding: 20px;
@@ -189,6 +188,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-12">
                                     <label class="labels">E-mail:</label>
+                                    <label id="email">(?)</label>
                                     <input type="text" class="form-control" placeholder="email address" name="email">
                                 </div>
                             </div>
@@ -197,6 +197,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-12">
                                     <label class="labels">Description:</label>
+                                    <label id="description">(?)</label>
                                     <textarea type="text" rows="4" class="form-control" placeholder="describe your inquiry here" name="description"></textarea>
                                 </div>
 
@@ -278,6 +279,25 @@
 
         </footer>
         <!-- End of Footer -->
+
+        <!-- Production -->
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+        
+        <!-- Javascript section for tippy tooltips -->
+        <script>
+
+            tippy('#description', {
+                content: "Please enter your inquiry in the description box. We will get back to you as soon as possible.",
+                placement: 'top',
+            });
+
+            tippy('#email', {
+                content: "The email you wish for us to reply to. ",
+                placement: 'top',
+            });
+
+        </script>
 
     </body>
 

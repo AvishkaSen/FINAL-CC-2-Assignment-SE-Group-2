@@ -237,6 +237,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-2">
                                                                 <label>First name</label>
+                                                                <label id='fname'>(?)</label>
                                                                 <input type="text" name="fname" class="form-control" required placeholder="enter first name">
                                                             </div> 
                                                         </div>
@@ -245,6 +246,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-2">
                                                                 <label>Last name</label>
+                                                                <label id="lname">(?)</label>
                                                                 <input type="text" name="lname" class="form-control" required placeholder="enter last name">
                                                             </div> 
                                                         </div>
@@ -253,6 +255,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-2">
                                                                 <label>Your Email:</label>
+                                                                <label id="email">(?)</label>
                                                                 <input type="email" name="email" class="form-control" required placeholder="enter email">
                                                             </div> 
                                                         </div>
@@ -261,6 +264,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-2">
                                                                 <label>Contact Number:</label>
+                                                                <label id="contact">(?)</label>
                                                                 <input type="text" name="contact" class="form-control" required placeholder="enter contact number">
                                                             </div> 
                                                         </div>
@@ -269,6 +273,7 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group mb-2">
                                                                 <label>Short message:</label>
+                                                                <label id="message">(?)</label>
                                                                 <textarea name="message" class="form-control" required placeholder="enter message"></textarea>
                                                             </div> 
                                                         </div>
@@ -657,6 +662,45 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+        <!-- Production -->
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+        
+        <!-- Javascript section for tippy tooltips -->
+        <script>
+
+            tippy('#fname', {
+                content: "Your legal first name / the name you prefer to be called",
+                placement: 'top',
+
+            });
+
+            tippy('#lname', {
+                content: "Legal last name / your family name",
+                placement: 'top',
+                
+            });
+
+            tippy('#email', {
+                content: "Your professional email address for contacting you for updates on your job application",
+                placement: 'top',
+                
+            });
+
+            tippy('#contact', {
+                content: "Your mobile or home contact number to easily reach you",
+                placement: 'top',
+            });
+
+            tippy('#message', {
+                content: "A short message that you might want to include to this advertisement owner",
+                placement: 'top',
+                
+            });
+
+        </script>
+    
     </body>
     
 </html>

@@ -29,20 +29,19 @@
 
                     <div class="modal2-header">
                         <span class="close">&times;</span>
-                        <h2 class="p-3">Greetings!</h2>
+                        <h2 class="p-3">WELCOME & HELLO!</h2>
                     </div>
 
                     <div class="modal2-body">
+
+                        <!-- Applicant modal image -->
+                        <img src="<?php echo base_url('/assets/img/applicant_modal.jpg') ?>" alt="applicant image" width="300" height="300">
                         
                         <p> Welcome to FutureSeekers! </p>
                         <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
-                        <br>
-                        <p> On this website, you can upload job advertisements of your company's job openings.</p>
-                        <p> Once approved by our site admins, it will be on display for all users to see. </p>
-                        <br>
-                        <p> For applicants, you can see and apply to any adverts that are approved on the site with your CV and basic information. </p>
+                        <p> As a job seeker, you can find and apply to any adverts that are approved on the site with your CV and contact information for companies to see.</p>
                         <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
-                        <br><br>
+                        <br>
                         <p> For any FutureSeekers inquiries, please send an email to our support service team </p>
                         <p> <i> futureseekershelp@gmail.com </i> </p>
 
@@ -56,20 +55,20 @@
 
                     <div class="modal2-header">
                         <span class="close">&times;</span>
-                        <h2 class="p-3">Greetings!</h2>
+                        <h2 class="p-3">WELCOME & HELLO!</h2>
                     </div>
 
                     <div class="modal2-body">
+
+                        <!-- Company modal image -->
+                        <img src="<?php echo base_url('/assets/img/company_modal.jpg') ?>" alt="applicant image" width="500" height="300">
                         
                         <p> Welcome to FutureSeekers! </p>
                         <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
+                        <p> As a company, you can upload job advertisements of your company's job openings.</p>
+                        <p> After a payment proccess, and then approved by our site admins, it will be made public for all job seekers to see. </p>
+                        <p> And for them to apply to it with their CV. </p>
                         <br>
-                        <p> On this website, you can upload job advertisements of your company's job openings.</p>
-                        <p> Once approved by our site admins, it will be on display for all users to see. </p>
-                        <br>
-                        <p> For applicants, you can see and apply to any adverts that are approved on the site with your CV and basic information. </p>
-                        <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
-                        <br><br>
                         <p> For any FutureSeekers inquiries, please send an email to our support service team </p>
                         <p> <i> futureseekershelp@gmail.com </i> </p>
 
