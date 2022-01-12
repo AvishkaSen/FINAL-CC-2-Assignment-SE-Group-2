@@ -28,6 +28,15 @@
             text-align: center;
         }
 
+
+        /* For message echoed when CV file related issue arises */
+        .alert3 {
+            padding: 20px;
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+
     </style>
 
 

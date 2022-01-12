@@ -7,16 +7,10 @@
     {
         public function create() {
 
+            $validation =  \Config\Services::validation(); // Validation library is loaded
+            $formdata = $this->request->getPost(); // Gets data from the registration form's post method
 
-            if($this->request->getPost()) {
-
-                // validations for file uploading
-                $rules = [
-                    'file' => 'uploaded[file]|max_size[file,1024]|ext_in[file,docx,pdf]',
-                ];
-            }
-
-            if($this->validate($rules)) {
+            if($validation->run($formdata, 'applyad')) {
 
                 $file = $this->request->getFile('file'); // gets the uploaded file
 
@@ -85,16 +79,20 @@
                     
                     return view("jobDetails");
 
-                }        
+
+                }  
 
             } else {
+                
+                // if the validations form validations fail
+                // Loads an array of the custom error messages I created in "app/Config/Validation.php" file!!
+                $errorArray = $validation->getErrors();
 
-                // Error message
                 echo '<div class="alert3">
-                <strong> ERROR! </strong> 
+                <strong> ERROR! </strong>
                 <br>
-                <i>Applying to job advert was not successful! Please double check CV file type and size!</i>
-                </div>';
+                <b>' . implode('<br>', $errorArray) . '</b> 
+                </div>';          
 
                 return view("jobDetails");
             }
