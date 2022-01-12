@@ -17,6 +17,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     </head>
 
@@ -57,13 +58,13 @@
 
 
         <!-- Register Account -->
-        <div class="container rounded bg-white mt-4 mb-1 col-md-5 border border-dark"> 
+        <div class="container rounded bg-white mt-3 mb-5 col-md-5 border border-dark"> 
             <div class="row">
                 <div class="col-md-12 border-right">
                     <div class="d-flex flex-column align-items-center p-3 py-5">
 
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 id="header1" class="text-right text-success display-6 p-2">REGISTER ACCOUNT</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 id="header1" class="text-right text-success display-6 p-1">REGISTER ACCOUNT</h4>
                         </div>
 
                         <form action=<?php echo site_url('Register/Create') ?> method="post">
@@ -103,7 +104,7 @@
                                 <!--- Confirm Password -->
                                 <div class="col-md-6">
                                     <label class="labels">Confirm Password:</label>
-                                    <input type="password" class="form-control"placeholder="confirm password" name="pass_confirm">
+                                    <input type="password" class="form-control" placeholder="confirm password" name="pass_confirm">
                                 </div>
 
                             </div>
@@ -163,6 +164,9 @@
                             <input type="hidden" name="approved" value="No">
 
                             <br>
+
+                            <!-- Recaptcha box with my datakey (Avishka) -->
+                            <div class="g-recaptcha mb-2" data-sitekey="6LdWMwoeAAAAACadQmNTU0cx8UvyeagvSbQ_34-e"></div>
 
                             <!--- Submit Button -->
                             <div class="text-center p-2">
