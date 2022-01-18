@@ -40,162 +40,206 @@
    
     <!-- ///////////////////////////////////////////////////////////////////// REPORT CREATION \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
+    <div class="container">
+        <div class="row">
+
+            <!--Report for most active company account -->
+            <div class="col-md-6 mt-5">
+                <div class="card border border-dark mb-5">
+                    <div class="card-header">
+                        <h4>Most Jobs Posted by Company Account</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>Advertisements Posted</th>
+                                    <th>Company Name</th>  
+                                                                                                           
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+
+                                    session();
+
+                                    $adsModel = new \App\Models\adModel;
+
+                                    $query = $adsModel -> query("SELECT company_name, COUNT(advertowner) AS jobadvert_Count
+                                                                    FROM
+                                                                    adverts
+                                                                    GROUP by advertowner
+                                                                    LIMIT 5");
+
+                                    foreach ($query -> getResult() as $row){
+
+                                ?>
+                                    <tr>
+                                        
+                                        <td><?php echo $row -> jobadvert_Count ?></td>
+                                        <td><?php echo $row -> company_name ?></td>
+                                        
+                                    </tr>
+                                <?php 
+                                } 
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--End of Report for most active company account -->
+
+            <!-- Report for most Engaged Job Seeker -->
+            <div class="col-md-6 mt-5">
+                <div class="card border border-dark mb-2">
+                    <div class="card-header">
+                        <h4>Most Engaged Job Seekers</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>Number of Applied Jobs</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    
+                                                                                                           
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+
+                                    session();
+                                    $applyModel = new \App\Models\applyModel;
+  
+                                    $query = $applyModel -> query("SELECT fname, lname, COUNT(applicantid) AS Jobs_applied
+                                                                    FROM
+                                                                    advertapply
+                                                                    GROUP by applicantid
+                                                                    LIMIT 5"); 
+
+                                    foreach ($query -> getResult() as $row){
+
+                                ?>
+                                    <tr>
+                                        
+                                        <td><?php echo $row -> Jobs_applied ?></td>
+                                        <td><?php echo $row -> fname ?></td>
+                                        <td><?php echo $row -> lname ?></td>
+                                        
+                                    </tr>
+                                <?php 
+                                } 
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Report for most Engaged Job Seeker -->
+
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="row">
+
+            <!-- Report for most popular Job Categories -->
+            <div class="col-md-6 mt-5">
+                <div class="card border border-dark mb-5">
+                    <div class="card-header">
+                        <h4>Most Popular Job Categories</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-5">
-                <div class="card border border-dark mb-5">
-                    <div class="card-header">
-                        <h4>Report For Most Applied Job Advert</h4>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-
-                                    
-                                    <th>Advert ID</th>
-                                    <th>Advert Owner</th>
-                                    <th>Applicant ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                                                                                           
+                                    <th>Number of Ads</th>
+                                    <th>Category Name</th>
+                                                                                       
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
 
                                     session();
-
-                                   
-                                    $applyModel = new \App\Models\applyModel;
-
-                                    
-                                    $query = $applyModel -> query("SELECT advertid, advertowner , applicantid , fname, lname FROM advertapply order by advertid"); 
-
-                                    foreach ($query -> getResult() as $row){
-
-                                ?>
-                                    <tr>
-                                        
-                                        <td><?php echo $row -> advertid ?></td>
-                                        <td><?php echo $row -> advertowner ?></td>
-                                        <td><?php echo $row -> applicantid ?></td>
-                                        <td><?php echo $row -> fname ?></td>
-                                        <td><?php echo $row -> lname ?></td>
-                                        
-                                    </tr>
-                                <?php 
-                                } 
-                                ?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-5">
-                <div class="card border border-dark mb-5">
-                    <div class="card-header">
-                        <h4>Report For Most Engaged Job Seeker</h4>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-
-                                    <th>Advert ID</th>
-                                    <th>Applicant ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email Address</th>
-                                    <th>Contact Number</th>
-                                                                                                           
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-
-                                    session();
-
-                                   
-                                    $applyModel = new \App\Models\applyModel;
-
-                                    
-                                    $query = $applyModel -> query("SELECT advertid, applicantid , fname, lname, email, contact FROM advertapply order by applicantid"); 
-
-                                    foreach ($query -> getResult() as $row){
-
-                                ?>
-                                    <tr>
-                                        
-                                        <td><?php echo $row -> advertid ?></td>
-                                        <td><?php echo $row -> applicantid ?></td>
-                                        <td><?php echo $row -> fname ?></td>
-                                        <td><?php echo $row -> lname ?></td>
-                                        <td><?php echo $row -> email ?></td>
-                                        <td><?php echo $row -> contact ?></td>
-                                        
-                                    </tr>
-                                <?php 
-                                } 
-                                ?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-5">
-                <div class="card border border-dark mb-5">
-                    <div class="card-header">
-                        <h4>Report For Most Engaged Company</h4>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-
-                                    
-                                    <th>Advert Owner</th>
-                                    <th>Company Name</th>
-                                    <th>Position</th>
-                                    <th>Category</th>
-                                      
-                                                                                                           
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-
-                                    session();
-
                                    
                                     $adapplyModel = new \App\Models\adModel;
 
-                                    
-                                    $query = $adapplyModel -> query("SELECT advertowner, company_name , position, category FROM adverts order by company_name"); 
+                                    $query = $adapplyModel -> query("SELECT category, COUNT(category) category_Count
+                                                                        FROM
+                                                                        adverts
+                                                                        GROUP by category
+                                                                        LIMIT 5"); 
 
                                     foreach ($query -> getResult() as $row){
 
                                 ?>
                                     <tr>
                                         
-                                        <td><?php echo $row -> advertowner ?></td>
-                                        <td><?php echo $row -> company_name ?></td>
-                                        <td><?php echo $row -> position ?></td>
+                                        <td><?php echo $row -> category_Count ?></td>
                                         <td><?php echo $row -> category ?></td>
-                                       
+                                           
+                                    </tr>
+                                <?php 
+                                } 
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- End of most popular Job categories -->
+
+
+            <!-- Report for most Applied Job Advertisements -->
+            <div class="col-md-6 mt-5">
+                <div class="card border border-dark mb-5">
+                    <div class="card-header">
+                        <h4>Most Applied Job Advertisements</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+   
+                                    <th>Times Applied</th>
+                                    <th>Job Advert Name</th>
+                                    <th>Job Advert Owner</th>
+                                                                                       
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+
+                                    session();
+                                   
+                                    $adapplyModel = new \App\Models\adModel;
+
+                                    $db = db_connect();
+                                    $query = $db -> query("SELECT COUNT(adverts.id) popular_job, adverts.jobname, adverts.company_name from adverts
+                                                    join advertapply 
+                                                    on advertapply.advertid = adverts.id
+                                                    GROUP BY 
+                                                    adverts.id
+                                                    Limit 5");
+
+                                    foreach ($query -> getResult() as $row){
+
+                                ?>
+                                    <tr>
+                                        
+                                        <td><?php echo $row -> popular_job ?></td>
+                                        <td><?php echo $row -> jobname ?></td>
+                                        <td><?php echo $row -> company_name ?></td>
                                         
                                     </tr>
                                 <?php 
@@ -207,12 +251,10 @@
                     </div>
                 </div>
             </div>
+            <!-- End of most popular Job Advertisements -->
+
         </div>
     </div>
-
-    
-    
-
 
     <!--Footer-->
     <footer>
