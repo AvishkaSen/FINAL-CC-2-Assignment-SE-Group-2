@@ -51,24 +51,24 @@
             
         <!-- ///////////////////////////////////////////////////////////////////// COMPANY REPORT CREATION \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
-        <!-- Most applied job report -->
         <div class="container">
             <div class="row">
+
+                <!-- Most Applied to job ads -->
                 <div class="col-md-12 mt-5">
                     <div class="card border border-dark mb-5">
                         <div class="card-header">
-                            <h4>Report For Most Applied Job Advert</h4>
+                            <h4>Your Most Applied Ads</h4>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
 
-                                        <th>Advert ID</th>
-                                        <th>Advert Owner</th>
-                                        <th>Applicant ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
+                                        <th>Times Applied</th>
+                                        <th>Job Advert Name</th>
+                                        <th>Job Advert Owner</th>
+                                        <th>Category</th>
                                                                                                             
                                     </tr>
                                 </thead>
@@ -76,10 +76,17 @@
                                     <?php
 
                                         session();
+                                        $companyID = $_SESSION['UserID'];
 
-                                        $applyModel = new \App\Models\applyModel;
-                                        
-                                        $query = $applyModel -> query("SELECT advertid, advertowner , applicantid , fname, lname FROM advertapply order by advertid"); 
+                                        $db = db_connect();
+                                        $query = $db -> query("SELECT COUNT(adverts.id) AS popular_job, adverts.jobname, adverts.company_name, adverts.category from adverts
+                                                                join advertapply 
+                                                                on advertapply.advertid = adverts.id
+                                                                WHERE
+                                                                adverts.advertowner = $companyID
+                                                                GROUP BY 
+                                                                adverts.id
+                                                                Limit 5");
 
                                         foreach ($query -> getResult() as $row)
                                         {
@@ -87,11 +94,10 @@
                                     ?>
                                         <tr>
                                             
-                                            <td><?php echo $row -> advertid ?></td>
-                                            <td><?php echo $row -> advertowner ?></td>
-                                            <td><?php echo $row -> applicantid ?></td>
-                                            <td><?php echo $row -> fname ?></td>
-                                            <td><?php echo $row -> lname ?></td>
+                                            <td><?php echo $row -> popular_job ?></td>
+                                            <td><?php echo $row -> jobname ?></td>
+                                            <td><?php echo $row -> company_name ?></td>
+                                            <td><?php echo $row -> category ?></td>
                                             
                                         </tr>
 
@@ -104,27 +110,22 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                <!-- End of most applied to job ads -->
 
-        <!-- Most preferred job report -->
-        <div class="container">
-            <div class="row">
+
+                <!-- Most Popular Job Categories -->
                 <div class="col-md-12 mt-5">
                     <div class="card border border-dark mb-5">
                         <div class="card-header">
-                            <h4> Report For Most Preferred Job Category </h4>
+                            <h4> Your Most Popular Job Categories </h4>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         
-                                        <th>Advert Owner</th>
-                                        <th>Job Name</th>
-                                        <th>Company</th>
-                                        <th>Position</th>
-                                        <th>Category</th>
+                                        <th>Number of Ads</th>
+                                        <th>Category Type</th>
                                                                                                             
                                     </tr>
                                 </thead>
@@ -133,9 +134,17 @@
 
                                         session();
                                     
-                                        $adModel = new \App\Models\adModel;
-                                        
-                                        $query = $adModel -> query("SELECT advertowner ,jobname,  company_name , position, category FROM adverts order by category"); 
+                                        $db = db_connect();
+                                        $companyID = $_SESSION['UserID'];
+
+                                        $query = $db -> query("SELECT COUNT(adverts.id) popular_category, adverts.category from adverts
+                                                                join advertapply 
+                                                                on advertapply.advertid = adverts.id
+                                                                WHERE
+                                                                adverts.advertowner = $companyID
+                                                                GROUP BY 
+                                                                adverts.id
+                                                                Limit 5");
 
                                         foreach ($query -> getResult() as $row)
                                         {
@@ -143,10 +152,7 @@
                                     ?>
                                         <tr>
                                             
-                                            <td><?php echo $row -> advertowner ?></td>
-                                            <td><?php echo $row -> jobname ?></td>
-                                            <td><?php echo $row -> company_name ?></td>
-                                            <td><?php echo $row -> position ?></td>
+                                            <td><?php echo $row -> popular_category ?></td>
                                             <td><?php echo $row -> category ?></td>
                                             
                                         </tr>
@@ -159,6 +165,9 @@
                         </div>
                     </div>
                 </div>
+                <!-- Most Popular Job Categories -->
+
+                
             </div>
         </div>
 
