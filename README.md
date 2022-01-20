@@ -1,6 +1,8 @@
 # [FINAL] CC-2 FUTURESEEKERS Group Assignment 
 ## (SE_GROUP-02)
 
+*~~~ Some good to know notes are placed at the bottom of this readME ~~~*
+
 SE Group 02 Team Members: 
 
 - Mohammed Yahya
@@ -38,6 +40,32 @@ Admin logins from seeder file are:
 
     - admin123@admin.com
     - admin123
+
+## (Additional Notes)
+* Make sure your php.init file has extension=intl enabled. The way to make sure of that is: 
+```
+
+    Open XAMPP (make sure the Apache module IS NOT running)
+    Next to the Apache module, press 'config' and then 'PHP'. (alternatively: [your_xampp_folder_path]/php/php.ini to edit.)
+    Search for ;extension=intl and remove the ; at the start.
+    Save the php.ini file and restart Apache on XAMPP.
+
+```
+
+* Make sure your php version is LOWER than php 8.1
+   - This is because certain methods and features are depreciated in php 8.1. 
+   - This is a known issue with the Codeigniter 4 framework of version 4.1.4 +
+   - *php version 8.0.9 was used for the development of this application*
+
+   ```
+   You can also TRY changing the .env file's environment by uncommenting the 'CI_ENVIRONMENT = production' and commenting the development line.
+   This is because production environment supresses certain errors. 
+   But this is not recommended.  
+   ```
+
+* If initially the css does not load when opening the webpage through localhost
+   - Try pressing ctrl + F5 to refresh your browser cache. 
+   - Try opening in a different browser
 
 
 *This assignment was for the Commercial Computing 2 AGILE Assignment*
