@@ -38,7 +38,7 @@
                         <img src="<?php echo base_url('/assets/img/applicant_modal.jpg') ?>" alt="applicant image" width="300" height="300">
                         
                         <p> Welcome to FutureSeekers! </p>
-                        <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
+                        <p> The prime choice for a meaningful hiring process and the next step in your professional career! Thank you for choosing us!</p>
                         <p> As a job seeker, you can find and apply to any adverts that are approved on the site with your CV and contact information for companies to see.</p>
                         <p> You can also search for job openings by company name, job title, or job location, and remote work. </p>
                         <br>
@@ -62,9 +62,9 @@
 
                         <!-- Company modal image -->
                         <img src="<?php echo base_url('/assets/img/company_modal.jpg') ?>" alt="applicant image" width="500" height="300">
-                        
+
                         <p> Welcome to FutureSeekers! </p>
-                        <p> The prime choice for a meaningful hiring process and the next step in your professional careeer! Thank you for choosing us!</p>
+                        <p> The prime choice for a meaningful hiring process and the next step in your professional career! Thank you for choosing us!</p>
                         <p> As a company, you can upload job advertisements of your company's job openings.</p>
                         <p> After a payment proccess, and then approved by our site admins, it will be made public for all job seekers to see. </p>
                         <p> And for them to apply to it with their CV. </p>
@@ -389,7 +389,7 @@
             {
         ?>
 
-            <!-- ADMIN ADS AWAITING APPROVAL -->
+            <!-- Job Ads recommendation for Applicant Users -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mt-3 mb-3">
@@ -427,7 +427,7 @@
                                             // gets the preferred job ads from the session 
                                             $preferred = session()->get('Preferred');
                                             
-                                            // Runs query to get approved ads of the user
+                                            // Runs query to get approved ads and preferred job category
                                             $query = $adsModel -> query("SELECT * FROM adverts WHERE approved = 'Yes' AND category = '$preferred'"); 
 
                                             foreach ($query -> getResult() as $row){

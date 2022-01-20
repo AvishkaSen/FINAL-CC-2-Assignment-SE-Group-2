@@ -63,7 +63,7 @@ class Validation
         'subject ' => 'required|max_length[20]|alpha_numeric_space',
         'name' => 'required|max_length[20]|alpha_numeric_space',
         'contactnumber' => 'required|max_length[10]|alpha_numeric',
-        'email' => 'required|valid_email|alpha_numeric_space',
+        'email' => 'required|valid_email',
         'description' => 'required|alpha_numeric_space',
     ];
 

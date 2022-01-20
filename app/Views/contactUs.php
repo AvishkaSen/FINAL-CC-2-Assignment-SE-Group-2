@@ -179,7 +179,7 @@
                                 <!-- Contact Number -->
                                 <div class="col-md-6">
                                     <label class="labels">Contact Number:</label>
-                                    <input type="text" class="form-control" placeholder="+94" name="mobile">
+                                    <input type="text" class="form-control" placeholder="+94" name="contactnumber">
                                 </div>
 
                             </div>
